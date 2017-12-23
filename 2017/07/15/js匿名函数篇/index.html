@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>石头博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#【20170715】js匿名函数 匿名函数篇一 - 你所应该警惕的js匿名函数1. 匿名函数是什么？初学者（比如我）不懂匿名函数和闭包，常混为一谈，二者其实截然不同。什么是匿名函数？先对比下面两段函数声明： 1234// 函数直接声明function FUNC(a, b, c) &amp;#123;  ...&amp;#125; 1234// 函数表达式声明var FUNC = function(a, b, c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="石头博客">
+<meta property="og:url" content="http://yoursite.com/2017/07/15/js匿名函数篇/index.html">
+<meta property="og:site_name" content="石头博客">
+<meta property="og:description" content="#【20170715】js匿名函数 匿名函数篇一 - 你所应该警惕的js匿名函数1. 匿名函数是什么？初学者（比如我）不懂匿名函数和闭包，常混为一谈，二者其实截然不同。什么是匿名函数？先对比下面两段函数声明： 1234// 函数直接声明function FUNC(a, b, c) &amp;#123;  ...&amp;#125; 1234// 函数表达式声明var FUNC = function(a, b, c">
+<meta property="og:updated_time" content="2017-09-06T08:39:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="石头博客">
+<meta name="twitter:description" content="#【20170715】js匿名函数 匿名函数篇一 - 你所应该警惕的js匿名函数1. 匿名函数是什么？初学者（比如我）不懂匿名函数和闭包，常混为一谈，二者其实截然不同。什么是匿名函数？先对比下面两段函数声明： 1234// 函数直接声明function FUNC(a, b, c) &amp;#123;  ...&amp;#125; 1234// 函数表达式声明var FUNC = function(a, b, c">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/scrollUp/image.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <div class="logo">
+        <img src="/logo.png" alt="Profile Picture">
+      </div>
+      <div id="title">石头博客</div>
+      
+       <ul class="my-socials">
+  
+ 
+</ul>
+    </div>
+  </div>
+  <div id="header-inner" class="">
+    <nav id="main-nav">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <!--
+        
+          
+            <a class="main-nav-link" href="/">首页</a>
+          
+            <a class="main-nav-link" href="/categories/life">生活</a>
+          
+            <a class="main-nav-link" href="/archives">归档</a>
+          
+        
+      -->
+    </nav>
+    <nav id="title-nav" style="display:none">
+      <a href="/">石头博客</a>
+      <img src="/logo.png" alt="Profile Picture">
+      <!--
+      <span id="title-nav-socials">
+        
+       
+     </span>
+      -->
+    </nav>
+    <nav id="sub-nav">
+      
+      <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+    </nav>
+    <div id="search-form-wrap">
+      <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+        <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+        <input type="submit" value="" class="search-form-submit">
+        <input name=tn type=hidden value="bds">
+        <input name=cl type=hidden value="3">
+        <input name=ct type=hidden value="2097152">
+        <input type="hidden" name="si" value="yoursite.com">
+      </form>
+    </div>
+  </div>
+  <div class="site-nav" style="display: none;">
+    <ul>
+      
+      
+        <li><a href="/">首页</a></li>
+      
+        <li><a href="/categories/life">生活</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+      
+    </ul>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-js匿名函数篇" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/15/js匿名函数篇/" class="article-date">
+  <time datetime="2017-07-15T03:39:47.000Z" itemprop="datePublished">2017-07-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#【20170715】js匿名函数</p>
+<h2 id="匿名函数篇一-你所应该警惕的js匿名函数"><a href="#匿名函数篇一-你所应该警惕的js匿名函数" class="headerlink" title="匿名函数篇一 - 你所应该警惕的js匿名函数"></a>匿名函数篇一 - 你所应该警惕的js匿名函数</h2><h3 id="1-匿名函数是什么？"><a href="#1-匿名函数是什么？" class="headerlink" title="1. 匿名函数是什么？"></a>1. 匿名函数是什么？</h3><p>初学者（比如我）不懂匿名函数和闭包，常混为一谈，二者其实截然不同。什么是匿名函数？先对比下面两段函数声明：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 函数直接声明</span><br><span class="line">function FUNC(a, b, c) &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 函数表达式声明</span><br><span class="line">var FUNC = function(a, b, c) &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面两段都是函数的一般声明方法，在逻辑上几乎是等价的，它们有两个微小的区别：</p>
+<ol>
+<li>前者在执行前就被加载到作用域中，后者执行到该行才有定义</li>
+<li>前者为函数指定了函数名FUNC（指针），后者则是今天的重点——将<strong>匿名函数</strong>赋给了FUNC变量</li>
+</ol>
+<blockquote>
+<p>匿名函数，即没有指定变量名的函数，形如 function ( ) { … }</p>
+</blockquote>
+<p>本篇的主角，就决定是你了。</p>
+<h3 id="2-（可匿名）递归函数"><a href="#2-（可匿名）递归函数" class="headerlink" title="2.（可匿名）递归函数"></a>2.（可匿名）递归函数</h3><p>递归函数，也就是在函数段中再次调用自己的函数。在js中有一个arguments.callee可指向当前活动函数的函数名，什么时候需要它呢？</p>
+<p>1.使得递归更保险</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var fac1 = function(n)&#123; ... fac1(n-1) ... &#125;  </span><br><span class="line">fac2 = fac1;     // 将fac2指向fac1所指向的函数</span><br><span class="line">fac1 = null;     // fac1指针置空</span><br><span class="line">fac2();          // =&gt;ERROR! 因为函数体中仍残有被置空的fac1，无法调用</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var fac1 = function(n)&#123; ... arguments.callee(n-1) ... &#125;  </span><br><span class="line">fac2 = fac1;     // 将fac2指向fac1所指向的函数</span><br><span class="line">fac1 = null;     // fac1指针置空</span><br><span class="line">fac2();          // =&gt;成功！</span><br></pre></td></tr></table></figure>
+<p>2.你还可以给匿名函数写递归！（这个感觉不是特别实用）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function outer (num) &#123;</span><br><span class="line">  return function (num) &#123;</span><br><span class="line">    ... </span><br><span class="line">    arguments.callee(num-1);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-闭包是什么？"><a href="#3-闭包是什么？" class="headerlink" title="3. 闭包是什么？"></a>3. 闭包是什么？</h3><blockquote>
+<p>闭包，即访问另一函数作用域中的私有变量</p>
+</blockquote>
+<p>实现原理：作用域链</p>
+<p>实现方式：在一个函数内部创建另一个函数，通过作用域链来调用外层函数的变量</p>
+<p>一下没看懂是不是？先看一个实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function Name (name) &#123;</span><br><span class="line">  var name = &apos;Niconico&apos;;</span><br><span class="line">  var getName = function () &#123;  // 此处用了匿名函数</span><br><span class="line">    return name;</span><br><span class="line">  &#125;</span><br><span class="line">  return getName()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2017/07/15/js匿名函数篇/" data-id="cjbj4m0fr0003q9fynv8p5rga" class="article-share-link">Share</a>
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/11/28/华辩自由辩技术分析——记2017新国辩初赛 “被同化-被排斥更可怕” （复旦-天大）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 spskauynnda<br>
+      Theme <a href="https://github.com/henryhuang/oishi" target="_blank">Oishi</a>, Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <!--
+      <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/categories/life" class="mobile-nav-link">生活</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    -->
+    
+
+<!-- 百度分享 start -->
+
+<!-- 百度分享 end -->
+
+<script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<script src="/js/jquery.scrollUp.min.js"></script>
+<script src="/js/jquery.transform.js"></script>
+<script src="/js/menu.js"></script>
+
+<script src="/js/script.js"></script>
+<script src="/js/scrollUp.js"></script>
+
+  </div>
+</body>
+</html>
